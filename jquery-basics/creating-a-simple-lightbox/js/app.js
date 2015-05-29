@@ -3,6 +3,9 @@
 //Solution: create an overlay with large image - Lightbox
 
 var $overlay = $('<div id="overlay"></div>');
+var $image = $("<img>");
+
+$overlay.append($image);
 
 //0 Add an overlay
 $("body").append($overlay);
