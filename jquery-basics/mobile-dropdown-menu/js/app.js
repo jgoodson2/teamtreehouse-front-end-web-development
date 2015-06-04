@@ -1,7 +1,11 @@
 //Problem: it looks gross in smaller browser widths and small devices
 //Solution: to hide the text links and swap them out with a more appropriate navigation\
 
-//Create a select and append to menu
+//Create a select and append to #menu
+
+var $select;
+$select = $("<select></select>");
+$("#menu").append($select);
 //Cycle over menu links
   //Create an option
   //options value is the href of link
