@@ -7,10 +7,18 @@ var $select;
 $select = $("<select></select>");
 $("#menu").append($select);
 //Cycle over menu links
-  //Create an option
-  //options value is the href of link
-  //optiosn text is text of link
-  //append option to select
+///////$("#menu a").each()
+$("#menu a").each(function(index){
+    var $anchor = $(this);
+    //Create an option
+    var $option = $("<option></option>");
+    //option's value is the href of link
+    $option.attr("href", $anchor.attr("href"));
+    //option's text is text of link
+    $option.text($anchor.text());
+    //append option to select
+    $select.append($option);
+});
 //Create button to click to go to select's location
   //bind click action to button
   //go to select's location
