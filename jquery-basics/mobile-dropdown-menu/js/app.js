@@ -25,7 +25,7 @@ $("#menu").append($button);
   //bind click action to button
 $button.click(function(){
     //go to select's location
-
+window.location = $select.val();
 });
 //Modify CSS to hide links on small widths and show button and select
 //Also hides select and button on larger widths and shows links
