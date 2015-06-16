@@ -25,11 +25,12 @@ $("#menu a").each(function(index){
     //append option to select
     $select.append($option);
 });
-//Create button to click to go to select's location
-var $button = $("<button>Go!</button>");
-$("#menu").append($button);
-  //bind click action to button
-$button.click(function(){
+////Create button to click to go to select's location
+//var $button = $("<button>Go!</button>");
+//$("#menu").append($button);
+
+  //bind change listener to the select
+$select.change(function(){
     //go to select's location
 window.location = $select.val();
 });
