@@ -4,7 +4,7 @@
 var color = $(".selected").css("background-color");
 
 //when clicking on control list items
-$(".controls li").click(function () {
+$(".controls").on("click","li",function () {
 ///deselect sibling elements
     $(this).siblings().removeClass("selected");
 ///select clicked item
@@ -30,9 +30,19 @@ function changeColor() {
 //When color sliders change
 $("input[type=range]").change(changeColor);
 
+
 //when add color is pressed
+$("#addNewColor").click(function () {
 ///append the color to the controls UL
+    var $newColor = $("<li></li>");
+    $newColor.css("backgroundColor", $("#newColor").css("backgroundColor"));
+    $(".controls ul").append($newColor);
 ///select the new color
+//    $newColor.siblings().removeClass("selected");
+//    $newColor.addClass("selected");
+    $newColor.click();
+});
+
 
 //on mouse events on the canvas
 ///draw lines
