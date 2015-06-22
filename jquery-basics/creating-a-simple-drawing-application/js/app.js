@@ -4,23 +4,31 @@
 var color = $(".selected").css("background-color");
 
 //when clicking on control list items
-$(".controls li").click(function(){
+$(".controls li").click(function () {
 ///deselect sibling elements
-$(this).siblings().removeClass("selected");
+    $(this).siblings().removeClass("selected");
 ///select clicked item
-$(this).addClass("selected");
+    $(this).addClass("selected");
     //cache current color
     color = $(this).css("background-color");
 });
 
 //when new color is pressed
-$("#revealColorSelect").click(function(){
+$("#revealColorSelect").click(function () {
 ///show color select or hide the color select
-$("#colorSelect").show();
+    $("#colorSelect").toggle();
 });
 
-//When color sliders change
+function changeColor() {
 ///update the new color span
+    var r = $("#red").val();
+    var g = $("#green").val();
+    var b = $("#blue").val();
+    $("#newColor").css("background-color", "rgb(" + r + "," + g + "," + b + ")");
+}
+
+//When color sliders change
+$("input[type=range]").change(changeColor);
 
 //when add color is pressed
 ///append the color to the controls UL
