@@ -6,9 +6,21 @@ var $confirmPassword = $("#confirm_password");
 //hide hints
 $("form span").hide();
 
+function isPasswordValid(){
+    return $password.val().length > 8;
+}
+
+function arePasswordsMatching(){
+    return $password.val() === $confirmPassword.val();
+}
+
+function canSubmit(){
+    return isPasswordValid() && arePasswordsMatching();
+}
+
 function passwordEvent() {
     ///find out if PW is valid
-    if ($password.val().length > 8) {
+    if (isPasswordValid()) {
         ////hide hint if valid
         $password.next().hide();
     }
@@ -20,7 +32,7 @@ function passwordEvent() {
 
 function confirmPasswordEvent() {
 ///Find out if password and confirmation match
-    if ($password.val() === $confirmPassword.val()) {
+    if (arePasswordsMatching()) {
 ////Hide hint if matched
         $confirmPassword.next().hide();
     }
@@ -30,7 +42,13 @@ function confirmPasswordEvent() {
     }
 }
 
-$password.focus(passwordEvent).keyup(passwordEvent).focus(confirmPasswordEvent).keyup(confirmPasswordEvent);
+function enableSubmitEvent(){
+    $("#submit").prop("disabled", !canSubmit())
+}
+
+$password.focus(passwordEvent).keyup(passwordEvent).keyup(confirmPasswordEvent).keyup(enableSubmitEvent);
 
 //when event happens on confirmation input
 $confirmPassword.focus(confirmPasswordEvent).keyup(confirmPasswordEvent);
+
+enableSubmitEvent();
