@@ -63,5 +63,7 @@ if(mousedown ){
     lastEvent = e;}
 }).mouseup(function(){
     mousedown = false;
-})
+}).mouseleave(function(){
+    $canvas.mouseup();
+});
 
