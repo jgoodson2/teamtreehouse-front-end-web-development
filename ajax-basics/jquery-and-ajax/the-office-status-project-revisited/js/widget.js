@@ -9,3 +9,15 @@ $(document).ready(function () {
         $('#employeeList').html(statusHTML);
     });//end getJSON
 });//end ready
+
+$(document).ready(function () {
+    var url = "data/rooms.json";
+    $.getJSON(url, function (response) {
+        var roomsHTML = '<ul class="rooms">';
+        $.each(response, function (index, room) {
+            roomsHTML += '<li class="' + (room.available === true ? 'empty' : 'full') + '">' + room.room + '</li>';
+        });//end each;
+        roomsHTML += '</ul>';
+        $('#roomList').html(roomsHTML);
+    });//end getJSON
+});//end ready
