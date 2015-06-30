@@ -5,18 +5,24 @@
   <title>AJAX with JavaScript</title>
   <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="css/main.css">
+  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
   <script>
-  var xhr = new XMLHttpRequest();
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState === 4) {
-      document.getElementById('ajax').innerHTML = xhr.responseText;
-    }
-  };
-  xhr.open('GET', 'sidebar.html');
+//  var xhr = new XMLHttpRequest();
+//  xhr.onreadystatechange = function () {
+//    if (xhr.readyState === 4) {
+//      document.getElementById('ajax').innerHTML = xhr.responseText;
+//    }
+//  };
+//  xhr.open('GET', 'sidebar.html');
 
   function sendAJAX() {
-    xhr.send();
-    document.getElementById('load').style.display = 'none';
+//    xhr.send();
+//    document.getElementById('load').style.display = 'none';
+//    $('#ajax').load('sidebar.html');
+    $.get('sidebar.html', function(response){
+      $('#ajax').html(response);
+    });
+    $('#load').hide();
   }
   </script>
 </head>
@@ -28,7 +34,7 @@
           <div class="heading">
             <h1>Bring on the AJAX</h1>
           </div>
-          <button id="load" onclick="sendAJAX()" class="button">Bring it!</button>
+          <button id="load" onclick="sendAJAX()" class="button">Bring it now!</button>
           <div id="ajax">
 
           </div>
