@@ -14,7 +14,6 @@ $(document).ready(function () {
             $.each(data.items, function (i, photo) {
                 photoHTML += '<li class="grid-25 table-grid-50">';
                 photoHTML += '<a href="'+photo.link+'" class="image">';
-                //photoHTML += 'hey';
                 photoHTML += '<img src="'+ photo.media.m +'">';
                 photoHTML += '</a>';
                 photoHTML += "</li>";
